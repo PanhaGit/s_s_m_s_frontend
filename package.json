@@ -1,7 +1,7 @@
 {
-  "name": "s_s_m_s_frontend",
+  "name": "mongkol_school_it",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
