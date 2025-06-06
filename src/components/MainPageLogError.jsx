@@ -1,5 +1,6 @@
 import { Button, Result, Spin } from "antd";
 import { getServerStatus } from "../store/serverStore.js";
+import {Link} from "react-router-dom";
 const info = {
     404: {
         message: "404-Route Not Found",
@@ -18,7 +19,7 @@ const info = {
         sub: "Please contact adminestrator",
     },
 };
-export default function MainPage({ children, loading }) {
+function MainPageLogError({ children, loading }) {
     var server_status = getServerStatus();
     const isServerError =
         server_status === "403" ||
@@ -31,7 +32,11 @@ export default function MainPage({ children, loading }) {
                 status={server_status + ""}
                 title={info[server_status].message}
                 subTitle={info[server_status].sub}
-                extra={<Button type="primary">Back Home</Button>}
+                extra={<Button type="primary">
+                    <Link to={"/"}>
+                        Back Home
+                    </Link>
+                </Button>}
             />
         );
     }
@@ -42,3 +47,5 @@ export default function MainPage({ children, loading }) {
         </div>
     );
 }
+
+export default MainPageLogError;
