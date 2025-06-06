@@ -8,6 +8,7 @@ import {LoginPage} from "./pages/auth/LoginPage.jsx";
 import "./App.css"
 import TeacherPage from "./pages/teacher/TeacherPage.jsx";
 import ClassPage from "./pages/class/ClassPage.jsx";
+import RegisterAccountPage from "./pages/auth/RegisterAccountPage.jsx";
 
 const App = () => {
     return (
@@ -18,11 +19,11 @@ const App = () => {
                     <Route path="/student" element={<StudentPage />} />
                     <Route path="/teacher" element={<TeacherPage />} />
                     <Route path="/class" element={<ClassPage />} />
-                    
                 </Route>
 
-                <Route path={"/login"} element={<MasterAuthentication/>}>
+                <Route element={<MasterAuthentication/>}>
                     <Route path={"/login"} element={<LoginPage />} />
+                    <Route path={"/register"} element={<RegisterAccountPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
