@@ -1,54 +1,29 @@
-// import { useState, useEffect } from "react";
-import {Link, Outlet, useLocation} from "react-router-dom";
-// import { request } from "../../store/Configstore.js";
-
-// import { FaChevronDown } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { Link, Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
 import {
     MdHome,
-    // MdPerson,
-    // MdShoppingCart,
-    // MdOutlineProductionQuantityLimits,
+    MdPerson,
+    MdShoppingCart,
+    MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
-// import { BsShop } from "react-icons/bs";
-// import {
-//     // getProfile,
-//     // removeAcccessToken,
-//     // setProfile,
-// } from "../../store/profile";
+import { BsShop } from "react-icons/bs";
+import {getProfile, setAcccessToken, setProfile} from "../../store/profile";
 import logo from "../../assets/logo.jpg";
 import userPtofile from "../../assets/logo.jpg";
-import {PiStudentFill} from "react-icons/pi";
-import {useEffect, useState} from "react";
-// import { Dropdown, Menu } from "antd";
+import { PiStudentFill } from "react-icons/pi";
+import { Dropdown, Menu } from "antd";
 
 const items = [
     { key: "/", label: "ផ្ទាំងគ្រប់គ្រង", icon: <MdHome /> },
     { key: "/student", label: "គ្រប់គ្រងសិស្ស", icon: <PiStudentFill /> },
-    // { key: "/pos", label: "POS", icon: <BsShop /> },
-    // { key: "/employees", label: "និយោជិត", icon: <MdPerson /> },
-    // {
-    //     key: "/product_detail",
-    //     label: "ផលិតផល",
-    //     icon: <MdOutlineProductionQuantityLimits />,
-    // },
-    // {
-    //     key: "/category",
-    //     label: "ប្រភេទផលិតផល",
-    //     icon: <MdOutlineProductionQuantityLimits />,
-    // },
-    // { key: "/order", label: "ការបញ្ជាទិញ", icon: <MdShoppingCart /> },
-    // { key: "/expense", label: "ការចំណាយ", icon: <MdAttachMoney /> },
-    // { key: "/account_staff", label: "បុគ្គលិកគណនេយ្យ", icon: <MdPerson /> },
-    // { key: "/role", label: "តួនាទី", icon: <MdLock /> },
 ];
 
 const MasterLayout = () => {
     const [currentTime, setCurrentTime] = useState("");
-    // // const [user, setUser] = useState(getProfile());
-    // const user = getProfile();
+    const user = getProfile();
     const location = useLocation();
-    // const navigate = useNavigate();
-
+    const navigate = useNavigate();
     const url = location.pathname || "";
 
     const updateCurrentTime = () => {
@@ -72,41 +47,31 @@ const MasterLayout = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // useEffect(() => {
-    //     if (!user) {
-    //         navigate("/login");
-    //     }
-    // }, [user, navigate]);
+    useEffect(() => {
+        if (!user) {
+            navigate("/login");
+        }
+    }, [user, navigate]);
 
-    // const handleLogout = async () => {
-    //     try {
-    //         const res = await request("logout", "post");
-    //
-    //         if (res) {
-    //             removeAcccessToken("");
-    //             setProfile("");
-    //             navigate("/login");
-    //         }
-    //     } catch (error) {
-    //         console.error("Error Response:", error.response?.data || error.message);
-    //     }
-    // };
+    const handleLogout = () => {
+        setProfile("");
+        setAcccessToken("");
+        navigate("/login");
+    };
 
-    // const menu = (
-    //     <Menu>
-    //         <Menu.Item key="logout">
-    //             <div className="flex items-center cursor-pointer">
-    //                 {/* <FaPencilAlt className="mr-2" /> */}
-    //                 <p>Logout</p>
-    //             </div>
-    //         </Menu.Item>
-    //     </Menu>
-    // );
+    const menu = (
+        <Menu>
+            <Menu.Item key="logout" onClick={handleLogout}>
+                <div className="flex items-center cursor-pointer">
+                    <p>Logout</p>
+                </div>
+            </Menu.Item>
+        </Menu>
+    );
 
-    // if (!user) {
-    //     // return <Navigate to="/login" replace />;
-    //     return null;
-    // }
+    if (!user) {
+        return <Navigate to="/login" replace />;
+    }
 
     return (
         <div className="flex h-screen bg-gray-100">
@@ -133,8 +98,8 @@ const MasterLayout = () => {
                             >
                                 <div className="text-2xl">{item.icon}</div>
                                 <span className="font-khmer_Kantumruy_pro text-lg">
-                                  {item.label}
-                                </span>
+                  {item.label}
+                </span>
                             </Link>
                         </li>
                     ))}
@@ -172,13 +137,11 @@ const MasterLayout = () => {
                                     className="w-8 h-8 rounded-full"
                                 />
                                 <div className="flex items-center gap-2">
-                                    <p>role</p>
-                                    {/* Display user's name if available */}
-                                    {/*{user && <p className="text-sm">{user?.name}</p>}*/}
-                                    {/* Dropdown */}
-                                    {/*<Dropdown overlay={menu} trigger={["click"]}>*/}
-                                    {/*    <FaChevronDown className="h-5 w-5 text-black" />*/}
-                                    {/*</Dropdown>*/}
+                                    {user?.role && <p className="text-sm">{user.role}</p>}
+                                    {user?.username && <p className="text-sm">{user?.username}</p>}
+                                    <Dropdown overlay={menu} trigger={["click"]}>
+                                        <FaChevronDown className="h-5 w-5 text-black cursor-pointer" />
+                                    </Dropdown>
                                 </div>
                             </div>
                         </div>

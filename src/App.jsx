@@ -5,6 +5,7 @@ import DashboardPage from "./pages/dashboard/DashboardPage.jsx";
 import StudentPage from "./pages/student/StudentPage.jsx";
 import MasterAuthentication from "./components/authentication/MasterAuthentication.jsx";
 import {LoginPage} from "./pages/auth/LoginPage.jsx";
+import "./App.css"
 
 const App = () => {
     return (

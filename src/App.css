@@ -1,0 +1,7 @@
+.ant-input::placeholder {
+    font-family: 'Kantumruy Pro', sans-serif;
+}
+
+.ant-input-password::placeholder {
+    font-family: 'Kantumruy Pro', sans-serif;
+}
