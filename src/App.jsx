@@ -9,6 +9,7 @@ import "./App.css"
 import TeacherPage from "./pages/teacher/TeacherPage.jsx";
 import ClassPage from "./pages/class/ClassPage.jsx";
 import RegisterAccountPage from "./pages/auth/RegisterAccountPage.jsx";
+import RolePage from "./pages/auth/RolePage.jsx";
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                     <Route path="/student" element={<StudentPage />} />
                     <Route path="/teacher" element={<TeacherPage />} />
                     <Route path="/class" element={<ClassPage />} />
+                    <Route path="/role" element={<RolePage />} />
                 </Route>
 
                 <Route element={<MasterAuthentication/>}>
