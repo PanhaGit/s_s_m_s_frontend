@@ -5,7 +5,7 @@ import {
     MdHome,
     MdPerson,
     MdShoppingCart,
-    MdOutlineProductionQuantityLimits,
+    MdOutlineProductionQuantityLimits, MdClass,
 } from "react-icons/md";
 import { BsShop } from "react-icons/bs";
 import {getProfile, setAcccessToken, setProfile} from "../../store/profile";
@@ -18,6 +18,7 @@ const items = [
     { key: "/", label: "ផ្ទាំងគ្រប់គ្រង", icon: <MdHome /> },
     { key: "/student", label: "គ្រប់គ្រងសិស្ស", icon: <PiStudentFill /> },
     { key: "/teacher", label: "គ្រប់គ្រងគ្រូ", icon: <PiChalkboardTeacher /> },
+    { key: "/class", label: "គ្រប់គ្រងថ្នាក់រៀន", icon: <MdClass  /> },
 ];
 
 const MasterLayout = () => {
