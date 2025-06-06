@@ -19,6 +19,7 @@ const items = [
     { key: "/student", label: "គ្រប់គ្រងសិស្ស", icon: <PiStudentFill /> },
     { key: "/teacher", label: "គ្រប់គ្រងគ្រូ", icon: <PiChalkboardTeacher /> },
     { key: "/class", label: "គ្រប់គ្រងថ្នាក់រៀន", icon: <MdClass  /> },
+    { key: "/role", label: "គ្រប់គ្រងតួនាទី", icon: <MdClass  /> },
 ];
 
 const MasterLayout = () => {
