@@ -18,9 +18,9 @@ export const LoginPage = () => {
                 password: values.password,
             };
             const res = await request("auth/login", "post", param);
-
+            // console.log(res.data.token);
             if (res && !res.error) {
-                setAcccessToken(res.token);
+                setAcccessToken(res.data.token);
                 setProfile(JSON.stringify(res.data));
                 message.success(res.message || "Login successful");
                 navigate("/");
