@@ -11,12 +11,13 @@ import { BsShop } from "react-icons/bs";
 import {getProfile, setAcccessToken, setProfile} from "../../store/profile";
 import logo from "../../assets/logo.jpg";
 import userPtofile from "../../assets/logo.jpg";
-import { PiStudentFill } from "react-icons/pi";
+import {PiChalkboardTeacher, PiStudentFill} from "react-icons/pi";
 import { Dropdown, Menu } from "antd";
 
 const items = [
     { key: "/", label: "ផ្ទាំងគ្រប់គ្រង", icon: <MdHome /> },
     { key: "/student", label: "គ្រប់គ្រងសិស្ស", icon: <PiStudentFill /> },
+    { key: "/teacher", label: "គ្រប់គ្រងគ្រូ", icon: <PiChalkboardTeacher /> },
 ];
 
 const MasterLayout = () => {
