@@ -6,6 +6,7 @@ import StudentPage from "./pages/student/StudentPage.jsx";
 import MasterAuthentication from "./components/authentication/MasterAuthentication.jsx";
 import {LoginPage} from "./pages/auth/LoginPage.jsx";
 import "./App.css"
+import TeacherPage from "./pages/teacher/TeacherPage.jsx";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                 <Route element={<MasterLayout />}>
                     <Route path="/" element={<DashboardPage />} />
                     <Route path="/student" element={<StudentPage />} />
+                    <Route path="/teacher" element={<TeacherPage />} />
 
                 </Route>
 
